@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Poner un block para que luego pueda ser remplazado en las siguientes plantillas; lo mismo con el  block contenido-->
+    <title>LISTA TEATROS</title>
+    
+</head>
+
+<body>
+    <h3>Teatros</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Nombreciudad</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for teatro in teatro_lista %}
+            <tr>
+                <td>{{teatro.id}}</td>
+                <td>{{teatro.nombre}}</td>
+                <td>{{teatro.nombreciudad}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
