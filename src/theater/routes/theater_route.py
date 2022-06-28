@@ -4,12 +4,18 @@ from ..models.theater_model import Teatro
 
 
 
-theater = Blueprint('theater',__name__, template_folder='templates', url_prefix="/lista")
+theaterss = Blueprint('theater',__name__, template_folder='../templates')
 
-@theater.route("/teatros")
+@theaterss.route('/teatros', methods=['GET'])
 def index():
     teatro_lista = theater_controller.lista_teatros()
     teatros_dict = [teatro._asdict() for teatro in teatro_lista]
-    return render_template('theater/lista_teatros.html', teatro_lista=teatro_lista)
+    #return render_template('lista_teatros.html', teatro_lista=teatro_lista)
+    return jsonify(teatros_dict)
+
+
+
+
+
 
 
