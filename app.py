@@ -9,7 +9,6 @@ from src.complaint.routes.complaint_route import complaint
 
 app = Flask(__name__)
 
-
 app.register_blueprint(theaterss, url_prefix='/')
 app.register_blueprint(servant, url_prefix='/')
 app.register_blueprint(solicitud, url_prefix='/')

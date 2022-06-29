@@ -12,12 +12,14 @@ where  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicul
 
 /*ALIMENTOS QUE SE VENDEN, INCLUYE BEBIDAS*/
 SELECT cine.alimento.idalimento, cine.alimento.nombre, cine.alimento.precio, cine.bebida.*
-FROM cine.alimento, cine.bebida, cine.teatro_alimento
-WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND cine.teatro_alimento.idteatro = 5 AND
-cine.alimento.bebida_fk = cine.bebida.idbebida;
+                FROM cine.alimento, cine.bebida, cine.teatro_alimento
+                WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND 
+                cine.alimento.bebida_fk = cine.bebida.idbebida AND 
+                cine.teatro_alimento.idteatro = 1;
 
 /*BEBIDAS QUE SE VENDEN, SOLO BEBIDAS*/
 SELECT cine.bebida.*
 FROM cine.alimento, cine.bebida, cine.teatro_alimento
-WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND cine.teatro_alimento.idteatro = 4 AND
-cine.alimento.bebida_fk = cine.bebida.idbebida;
+WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND 
+cine.alimento.bebida_fk = cine.bebida.idbebida AND 
+cine.teatro_alimento.idteatro = 5;

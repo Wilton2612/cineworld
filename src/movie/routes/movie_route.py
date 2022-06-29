@@ -15,7 +15,7 @@ def peliculas_sala():
 """
 
 
-@movie.route("peliculas-sala/<int:iden>", methods=['GET'])
+@movie.route("/peliculas-sala/<int:iden>", methods=['GET'])
 def peliculas_sala(iden):
     pelicula_lista_sala = movie_controller.lista_pelicula_teatro_sala(iden)
     peliculas_dict = [pelicula._asdict() for pelicula in pelicula_lista_sala]
