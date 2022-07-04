@@ -9,7 +9,6 @@ SELECT cine.pelicula.*
 FROM cine.teatro_pelicula, cine.pelicula 
 where  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=0 AND cine.teatro_pelicula.idteatro=1;
 
-
 /*ALIMENTOS QUE SE VENDEN, INCLUYE BEBIDAS*/
 SELECT cine.alimento.idalimento, cine.alimento.nombre, cine.alimento.precio, cine.bebida.*
                 FROM cine.alimento, cine.bebida, cine.teatro_alimento
@@ -23,3 +22,6 @@ FROM cine.alimento, cine.bebida, cine.teatro_alimento
 WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND 
 cine.alimento.bebida_fk = cine.bebida.idbebida AND 
 cine.teatro_alimento.idteatro = 5;
+
+
+/*SERVICIOS QUE OFRECE CINEWORLD*/
