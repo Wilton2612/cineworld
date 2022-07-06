@@ -1,0 +1,29 @@
+{%extends "base/base.html"%}
+{%block title %} Bebidas {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+<h3>Bebidas del teatro - {{teatro.nombre}}</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bebida in bebidas_lista %}
+        <tr>
+            <td>{{bebida.idbebida}}</td>
+            <td>{{bebida.nombre}}</td>
+            <td>{{bebida.precio}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}

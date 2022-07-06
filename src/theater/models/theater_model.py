@@ -5,4 +5,5 @@ class Teatro(NamedTuple):
     id: Optional[int] = None
     nombre: Optional[str] = None
     nombreciudad: Optional[str] = None
+    imagen: Optional[str] = None
     

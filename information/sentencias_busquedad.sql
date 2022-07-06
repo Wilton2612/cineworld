@@ -23,5 +23,10 @@ WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND
 cine.alimento.bebida_fk = cine.bebida.idbebida AND 
 cine.teatro_alimento.idteatro = 5;
 
+/*BUSCAR TEATRO EN PARTICULAR*/
+SELECT * 
+FROM cine.teatro
+WHERE cine.teatro.idteatro = 1;
+
 
 /*SERVICIOS QUE OFRECE CINEWORLD*/

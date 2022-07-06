@@ -1,0 +1,42 @@
+{%extends "base/base.html"%}
+{%block title %} Peliculas {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+<h3>Peliculas en sala - {{teatro.nombre}}</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Duración</th>
+            <th>Genero</th>
+            <th>Descripción</th>
+            <th>Trailer</th>
+            <th>Director</th>
+            <th>Reparto</th>
+            <th>Imagen</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for pelicula in pelicula_lista_sala %}
+        <tr>
+            <td>{{pelicula.idpelicula}}</td>
+            <td>{{pelicula.nombre}}</td>
+            <td>{{pelicula.duracion}}</td>
+            <td>{{pelicula.genero}}</td>
+            <td>{{pelicula.descripcion}}</td>
+            <td>{{pelicula.trailer}}</td>
+            <td>{{pelicula.director}}</td>
+            <td>{{pelicula.reparto}}</td>
+            <td>{{pelicula.imagen}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{%endblock%}

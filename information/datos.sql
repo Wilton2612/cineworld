@@ -40,11 +40,11 @@ INSERT INTO alimento VALUES(10, '2 Hamburguesa con queso doble', 21000, 10);
 
 
 /*INSERTS FOR TABLE TEATROS*/
-INSERT INTO teatro VALUE(1,'El Eden','Bogotá');
-INSERT INTO teatro VALUE(2,'Americano','Barranquilla');
-INSERT INTO teatro VALUE(3,'Santa Lucia','Neiva');
-INSERT INTO teatro VALUE(4,'El Caraño','Quibdó');
-INSERT INTO teatro VALUE(5,'Ocean Mall','Santa Marta');
+INSERT INTO teatro VALUE(1,'El Eden','Bogotá', 'https://cdn.pixabay.com/photo/2018/03/09/01/20/city-3210384_960_720.jpg');
+INSERT INTO teatro VALUE(2,'Americano','Barranquilla', 'https://cdn.pixabay.com/photo/2019/03/26/17/52/barranquilla-4083262_960_720.jpg');
+INSERT INTO teatro VALUE(3,'Santa Lucia','Neiva', 'https://www.hotelneivaplaza.com/assets/cache/uploads/1400x933/portada.jpg');
+INSERT INTO teatro VALUE(4,'El Caraño','Quibdó', 'https://www.portafolio.co/files/article_multimedia/uploads/2019/05/17/5cded0c63393d.jpeg');
+INSERT INTO teatro VALUE(5,'Ocean Mall','Santa Marta', 'https://cdn.pixabay.com/photo/2020/03/13/18/00/colombia-4928729_960_720.jpg');
 
 
 /*INSERTS FOR TABLE SERVICES*/
