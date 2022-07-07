@@ -30,3 +30,7 @@ WHERE cine.teatro.idteatro = 1;
 
 
 /*SERVICIOS QUE OFRECE CINEWORLD*/
+SELECT cine.servicio.* 
+FROM cine.teatro_servicio, cine.servicio
+WHERE cine.teatro_servicio.idservicio = cine.servicio.idservicio AND cine.teatro_servicio.idteatro=3;
+

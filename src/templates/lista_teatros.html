@@ -1,0 +1,57 @@
+{%extends "base/base.html"%}
+
+{%block title %} Teatros {% endblock %}
+
+{% include "base/layout.html"%}
+
+{%block content%}
+<h3>
+  Teatros
+  <small class="text-muted">Ciudades en donde estámos.</small>
+</h3>
+
+<div class="container mb-3">
+  <div class="row">
+    <div class="col">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner text-center">
+          {% for teatro in teatro_lista %}
+          <div class="carousel-item {% if teatro.id == 1 %}active{% endif %}">
+            <img src="{{ teatro["imagen"] }}" class="d-block w-100" alt="{{ teatro["nombre"] }}">
+            <p class="fw-bold"><span>{{ teatro["nombreciudad"] }}</span></p>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next bg-dark" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="/lista-teatros" method="POST">
+
+  <div class="form-floating mb-3">
+    <select name="identificador" class="form-select" aria-label="Default select example">
+        <option selected>Elige un teatro</option>
+        {% for teatro in teatro_lista %}
+        <option value="{{teatro.id}}">
+
+            <p>{{teatro.nombre}}</p>
+            <p>|</p>
+            <p>{{teatro.nombreciudad}}</p>
+        </option>
+        {% endfor %}
+
+    </select>
+  </div>
+    <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Go</button>
+</form>
+
+{%endblock%}
