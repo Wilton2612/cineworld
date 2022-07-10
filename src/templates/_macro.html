@@ -4,10 +4,10 @@
      
     <dd> {{field(**kwargs)|safe}}
 
-        {% if field.errors%}
+        {% if field.errors %}
         <ul>
-            {% for error in fiel.errors%}
-            <li>{{error}}</li>
+            {% for error in field.errors%}
+            <li style="color: red;">{{error}}</li>
             {% endfor %}
         </ul>
         {% endif %}

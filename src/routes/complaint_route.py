@@ -1,6 +1,7 @@
-from flask import Blueprint, request, jsonify, render_template, redirect
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 
 from ..models.complaint_model import Contacto
+from ..controller import complaint_controller
 
 from ..helpers import principal, form1
 
@@ -11,33 +12,37 @@ contact = Blueprint('contact', __name__, template_folder='../templates')
 
 @contact.route("/contactanos", methods=['GET', 'POST'])
 def contacto_cliente():
-    formulario = form1.Formulario1()
-    if request.method == 'GET':
-        identificador = principal.leer()
-        if identificador is None:
+   
+    identificador = principal.leer()
+    if identificador is None:
             return render_template('error.html')
-        else:
-            
+    else:
+        formulario = form1.Formulario1(request.form)
+        if request.method == 'GET':
+            print("eyyyyy")
             return render_template('contacto.html', formulario=formulario)
             
-    if request.method == 'POST' and formulario.validate():
-        identificador = principal.leer()
-        if identificador is None:
-            return render_template('error.html')
+        if request.method == 'POST' and formulario.validate():
+            print("porque")
+            email = formulario.email.data
+            name = formulario.nombre.data
+            phone = formulario.telefono.data
+            motivo= formulario.motivo.data
+            comentario = formulario.comentario.data
+            print(email, name, phone, motivo, comentario, identificador)
+            contacto = Contacto(email=email, nombre=name, telefono=int(phone), tipocomentario=motivo, 
+                comentario=comentario, teatroid=int(identificador))
+            contact = complaint_controller.insertar_queja_teatro(contacto)
+
+            if contact == 0:
+                return redirect(url_for('contact.contacto_cliente'))
+            else:
+                return "OCURRIO UN ERROR"
         else:
-            return redirect("/contactanos")
-
+            print("errorrrrr")
+            return render_template('contacto.html',formulario=formulario )
+        
             """
-            email = request.form['email']
-            name = request.form['name']
-            motivo = request.form['motivo']
-            comentario = request.form['comentario']
-
-            if email != '' and name != '' and movito != '----' and comentario != '':
-
-                print(email, name, phone, motivo, comentario, identificador)
-
-
                 contacto = Contacto(email=email, nombre=name, phone=telefono, tipocomentario=motivo, 
                 comentario=comentario, teatroid=identificador)
             """

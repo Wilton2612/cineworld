@@ -5,6 +5,7 @@ class Contacto(NamedTuple):
     idqueja: Optional[int] = None
     email: Optional[str] = None
     nombre: Optional[str] = None
+    telefono: Optional[int]= None
     tipocomentario: Optional[str] = None
     comentario: Optional[str] = None
     teatroid: Optional[int] = None
