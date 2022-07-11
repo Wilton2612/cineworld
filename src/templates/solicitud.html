@@ -6,56 +6,46 @@
 
 {%block content%}
 <h3>
-  Envía un correo
- 
+  Envía una Solicitud
 </h3>
 
-<form action="/solicitudes" method="POST">
+{% from "_macro.html" import render_form %}
 
-    <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
 
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Name</label>
-      </div>
-    
-      <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Phone</label>
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <form action="/solicitudes" method="POST" class="form-horizontal" novalidate >
+      <div >
+        {{render_form(formulario.email, class='form-control', placeholder='name@gmail.com')}}
       </div>
 
-      <div class="form-floating mb-3">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option selected>Servicio</option>
-          <option value="1">Solicitud de información</option>
-          <option value="2">Sugerencias</option>
-          <option value="3">Quejas y reclamos</option>
-          <option value="3">Empleo</option>
-          <option value="3">Otros</option>
-        </select>
-        <label for="floatingSelect">Works with selects</label>
+      <div class="form-group">
+        {{render_form(formulario.nombre, class='form-control', placeholder='Mateo Carvajal')}}
       </div>
 
-      <div class="form-floating mb-3">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option selected>Teatro</option>
-          <option value="1">El Eden</option>
-          <option value="2">Americano</option>
-          <option value="3">El Caraño</option>
-          <option value="3">Ocean mall</option>
-          <option value="3">Otros</option>
-        </select>
-        <label for="floatingSelect">Works with selects</label>
+      <div class="form-group">
+        {{render_form(formulario.telefono, class='form-control', placeholder='312637...')}}
       </div>
 
-    <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-        <label for="floatingTextarea2">Comments</label>
+      <div class="form-group">
+        {{render_form(formulario.servicio, class='form-control')}}
       </div>
-    <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Enviar</button>
-</form>
+
+      <div class="form-group">
+        {{render_form(formulario.comentario, class='form-control', placeholder='Ingresa un comentario no mayor a 200 caracteres', style="height: 100px;resize: none;")}}
+      </div>
+
+
+      <div class="form-group">
+        <div class="p-2">
+          <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <div class="col-lg-4"></div>
+</div>
 
 {%endblock%}

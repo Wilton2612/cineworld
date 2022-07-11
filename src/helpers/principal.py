@@ -1,9 +1,25 @@
-from flask import Blueprint, request, jsonify, render_template
 from openpyxl import Workbook
 import openpyxl
+
+from wtforms import validators
   
 
-princi= Blueprint('princi',__name__, template_folder='../../templates')
+
+
+def validate_caracter_special_and_number(form,field):
+    unido = field.data.replace(" ", "")
+    if unido.isalpha() == False:
+        raise validators.ValidationError('No se permiten caracteres especiales o números')
+
+def validate_telefono(form, field):
+    if field.data.isdigit() == False:
+        raise validators.ValidationError('No se permiten caracteres')
+
+def validate_choose(form, field):
+    if field.data == '0':
+        raise validators.ValidationError('Elige una opción valida')
+
+
 
 def escribir(iden):
     try:
