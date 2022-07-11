@@ -35,23 +35,27 @@
   </div>
 </div>
 
-<form action="/lista-teatros" method="POST">
+{% from "_macro.html" import render_form %}
 
-  <div class="form-floating mb-3">
-    <select name="identificador" class="form-select" aria-label="Default select example">
-        <option selected>Elige un teatro</option>
-        {% for teatro in teatro_lista %}
-        <option value="{{teatro.id}}">
+<div class="row">
+  <div class="col-lg-4"></div>
+  <div class="col-lg-4">
+    <form action="/lista-teatros" method="POST" class="form-horizontal" novalidate >
+     
 
-            <p>{{teatro.nombre}}</p>
-            <p>|</p>
-            <p>{{teatro.nombreciudad}}</p>
-        </option>
-        {% endfor %}
+      <div class="form-group">
+        {{render_form(formulario.teatro, class='form-control')}}
+      </div>
 
-    </select>
+      <div class="form-group">
+        <div class="p-2">
+          <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Go</button>
+        </div>
+      </div>
+
+    </form>
   </div>
-    <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Go</button>
-</form>
+  <div class="col-lg-4"></div>
+</div>
 
 {%endblock%}
