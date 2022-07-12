@@ -1,42 +1,27 @@
 {%extends "base/base.html"%}
-{%block title %} Peliculas {% endblock %}
+{%block title %} Cartelera de {{teatro.nombreciudad}} {% endblock %}
 
 
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3>Peliculas en sala - {{teatro.nombre}}</h3>
+<h3 style="color: #1363DF;">Cartelera de {{teatro.nombreciudad}} - {{teatro.nombre}}</h3>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Duración</th>
-            <th>Genero</th>
-            <th>Descripción</th>
-            <th>Trailer</th>
-            <th>Director</th>
-            <th>Reparto</th>
-            <th>Imagen</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        {% for pelicula in pelicula_lista_sala %}
-        <tr>
-            <td>{{pelicula.idpelicula}}</td>
-            <td>{{pelicula.nombre}}</td>
-            <td>{{pelicula.duracion}}</td>
-            <td>{{pelicula.genero}}</td>
-            <td>{{pelicula.descripcion}}</td>
-            <td>{{pelicula.trailer}}</td>
-            <td>{{pelicula.director}}</td>
-            <td>{{pelicula.reparto}}</td>
-            <td>{{pelicula.imagen}}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% for pelicula in pelicula_lista_sala %}
+
+<div class="card bg-dark text-white" style="width: 50%; margin: auto;">
+    <img src="{{pelicula.imagen}}" class="card-img" alt="{{pelicula.nombre}}" href="/peliculas-sala/{{pelicula.idpelicula}}">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{pelicula.nombre}}</h5>
+      
+    </div>
+  </div>
+
+  <br>
+
+{% endfor %}
+
+
 
 {%endblock%}

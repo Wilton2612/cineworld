@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, abort
 
 from ..controller import theater_controller
 from ..models.theater_model import Teatro
@@ -17,19 +17,18 @@ def index():
     if request.method == 'GET':
         eliminar = principal.delete()
         if eliminar == 0:
-           
             teatro_lista = theater_controller.lista_teatros()
             formulario.teatro.choices = [(teatro.id, teatro.nombre+" - "+teatro.nombreciudad) for teatro in teatro_lista]
 
             teatros_dict = [teatro._asdict() for teatro in teatro_lista]
+
             return render_template('lista_teatros.html', teatro_lista=teatro_lista, formulario=formulario)
         else:
-            return render_template('error.html')
+            abort(403)
     if request.method == 'POST':
         identi = formulario.teatro.data
         return movie_route.peliculas_sala(identi)
         #return jsonify(teatros_dict)
-
 
 
 

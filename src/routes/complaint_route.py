@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, abort
 
 from ..models.complaint_model import Contacto
 from ..controller import complaint_controller
@@ -38,5 +38,3 @@ def contacto_cliente():
         else:
             return render_template('contacto.html',formulario=formulario )
         
-               
-            

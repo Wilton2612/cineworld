@@ -28,7 +28,6 @@
         {{render_form(formulario.telefono, class='form-control', placeholder='312637...')}}
       </div>
 
-
       <div class="form-group">
         {{render_form(formulario.motivo, class='form-control')}}
       </div>
@@ -37,17 +36,15 @@
         {{render_form(formulario.comentario, class='form-control', placeholder='Ingresa un comentario no mayor a 200 caracteres', style="height: 100px;resize: none;")}}
       </div>
 
-
       <div class="form-group">
         <div class="p-2">
           <button type="submit" name="submit" value="Elegir" class="btn btn-primary">Enviar</button>
         </div>
       </div>
-
     </form>
   </div>
   <div class="col-lg-4"></div>
 </div>
-<h1> {{error}}</h1>
+
 
 {%endblock%}
