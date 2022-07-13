@@ -16,6 +16,12 @@ def lista_peliculas() -> List[Pelicula]:
 def lista_pelicula_teatro_sala(iden:int) -> List[Pelicula]:
     return movie_db.list_pelicula_by_teatro_sala(iden)
 
+
+"""PELICULA EN PARTICULAR QUE ESTÁN EN SALA"""
+def pelicula_teatro_sala(iden_pelicula:int, iden_teatro:int) -> Pelicula:
+    return movie_db.pelicula_by_teatro_sala(iden_pelicula, iden_teatro)
+
+
 """PELICULAS QUE ESTÁN PRÓXIMAS A ESTRENAR"""
 def lista_pelicula_teatro_estreno(iden:int) -> List[Pelicula]:
     return movie_db.list_pelicula_by_teatro_estreno(iden)

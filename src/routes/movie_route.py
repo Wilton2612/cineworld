@@ -42,6 +42,33 @@ def peliculas_sala(iden:Optional[int] = None):
     #return jsonify(peliculas_dict)
 
 
+@movie.route("/peliculas-sala/<int:iden>", methods=['GET'])
+def pelicula_particular(iden):
+    
+    identificador = principal.leer()
+    if identificador is None:
+        return abort(403)
+    else:
+
+        pelicula_sala = movie_controller.pelicula_teatro_sala(iden, identificador)
+        teatro_asociado = movie_controller.theater_index(identificador)
+        return render_template('pelicula_sala.html', pelicula_sala=pelicula_sala)
+        
+    
+    #return jsonify(peliculas_dict)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @movie.route("/peliculas-proxima", methods=['GET'])
 def peliculas_proxima():

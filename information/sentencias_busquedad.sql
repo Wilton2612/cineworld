@@ -2,12 +2,12 @@
 /*PELICULAS DE UN TEATRO QUE ESTÁN EN SALA*/
 SELECT cine.pelicula.*
 FROM cine.teatro_pelicula, cine.pelicula 
-where  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=1 AND cine.teatro_pelicula.idteatro=1;
+WHERE  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=1 AND cine.teatro_pelicula.idteatro=1;
 
 /*PELICULAS DE UN TEATRO QUE ESTÁN PROXIMAS A ESTRENARSE*/
 SELECT cine.pelicula.*
 FROM cine.teatro_pelicula, cine.pelicula 
-where  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=0 AND cine.teatro_pelicula.idteatro=1;
+WHERE  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=0 AND cine.teatro_pelicula.idteatro=1;
 
 /*ALIMENTOS QUE SE VENDEN, INCLUYE BEBIDAS*/
 SELECT cine.alimento.idalimento, cine.alimento.nombre, cine.alimento.precio, cine.alimento.imagen, cine.bebida.*
@@ -33,4 +33,16 @@ WHERE cine.teatro.idteatro = 1;
 SELECT cine.servicio.* 
 FROM cine.teatro_servicio, cine.servicio
 WHERE cine.teatro_servicio.idservicio = cine.servicio.idservicio AND cine.teatro_servicio.idteatro=3;
+
+
+/*PELICULA EN PARTICULAR EN SALA*/
+SELECT cine.pelicula.*
+FROM cine.teatro_pelicula, cine.pelicula 
+WHERE cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=1 AND cine.teatro_pelicula.idteatro=1 AND cine.pelicula.idpelicula=1;
+
+
+/*PELICULA EN PARTICULAR QUE ESTÁN PROXIMAS A ESTRENARSE*/
+SELECT cine.pelicula.*
+FROM cine.teatro_pelicula, cine.pelicula 
+WHERE  cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=0 AND cine.teatro_pelicula.idteatro=1 AND cine.pelicula.idpelicula=10;
 

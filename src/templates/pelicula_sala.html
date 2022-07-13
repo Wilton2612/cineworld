@@ -1,0 +1,26 @@
+{%extends "base/base.html"%}
+{%block title %} Pelicula - {{pelicula_sala.nombre}} {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+<h3 style="color: #DF7861;">Pelicula {{pelicula_sala.nombre}} </h3>
+
+
+
+<div class="card" style="width: 50%; margin: auto;">
+  <img src="{{pelicula_sala.imagen}}" class="card-img-top" alt="{{pelicula_sala.nombre}}">
+  <div class="card-body">
+    <p class="card-text">{{pelicula_sala.descripcion}}</p>
+  </div>
+</div>
+<br>
+
+
+
+
+
+
+
+{%endblock%}

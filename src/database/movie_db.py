@@ -42,6 +42,26 @@ def list_pelicula_by_teatro_sala(iden:int)-> List[Pelicula]:
 
     return peliculas_lista
 
+
+"""PELICULA EN PARTICULAR QUE ESTÁN EN SALA"""
+def pelicula_by_teatro_sala(iden_pelicula:int, iden_teatro:int)-> Pelicula:
+    conexion = obtener_conexion()
+    sentencia = "SELECT cine.pelicula.* FROM cine.teatro_pelicula, cine.pelicula WHERE cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=1 AND cine.teatro_pelicula.idteatro=%s AND cine.pelicula.idpelicula= %s;"
+    with conexion.cursor() as cursor:
+        cursor.execute(sentencia, (iden_teatro, iden_pelicula))
+        pelicula = cursor.fetchone()
+    conexion.close()
+
+
+    
+    pelicula_only = Pelicula(idpelicula=pelicula[0], nombre=pelicula[1], duracion=pelicula[2], genero=pelicula[3], 
+        descripcion=pelicula[4], trailer=pelicula[5], director=pelicula[6], reparto=pelicula[7], estreno=pelicula[8],
+        imagen=pelicula[9])
+        
+    return pelicula_only
+
+
+
 """PELICULAS QUE ESTÁN PRÓXIMAS A ESTRENAR"""
 def list_pelicula_by_teatro_estreno(iden:int)-> List[Pelicula]:
     conexion = obtener_conexion()
