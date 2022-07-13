@@ -1,30 +1,34 @@
 {%extends "base/base.html"%}
-{%block title %} Bebidas {% endblock %}
+{%block title %} Alimentos {% endblock %}
 
 
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3>Alimentos del teatro - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861;">Alimentos del teatro - {{teatro.nombre}}</h3>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for alimento in alimentos_lista %}
-        <tr>
-            <td>{{alimento.idalimento}}</td>
-            <td>{{alimento.nombre1}}</td>
-            <td>{{alimento.precio1}}</td>
 
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% for alimento in alimentos_lista %}
+<div class="card mb-3" style="width: 50%; margin: auto;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{alimento.imagen}}" class="img-fluid rounded-start" alt="{{alimento.nombre1}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{alimento.nombre1}}</h5>
+          <p class="card-text"> Precio: ${{alimento.precio1}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Bebida</li>
+            <li class="list-group-item">{{alimento.nombre2}}</li>
+            <li class="list-group-item">Precio: ${{alimento.precio2}}</li>
+          </ul>
+      </div>
+      <p>Total: ${{alimento.total}} </p>
+    </div>
+  </div>
+  {% endfor %}
+
 
 {%endblock%}

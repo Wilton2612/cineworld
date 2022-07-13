@@ -23,20 +23,20 @@ INSERT INTO bebida VALUES(12,'Agua 500 ml', 3000);
 
 
 /*INSERTS FOR TABLE ALIMENTOS*/
-INSERT INTO alimento VALUES(1, 'Perro caliente', 10000, 1);
-INSERT INTO alimento VALUES(2, '2 Perro caliente', 20000, 2);
+INSERT INTO alimento VALUES(1, 'Perro caliente', 10000, 1, 'https://cdn.pixabay.com/photo/2012/02/29/16/12/hot-19456_960_720.jpg');
+INSERT INTO alimento VALUES(2, '2 Perro caliente', 20000, 2, 'https://images.pexels.com/photos/4113463/pexels-photo-4113463.jpeg?auto=compress&cs=tinysrgb&w=600');
 
-INSERT INTO alimento VALUES(3, 'Hamburguesa', 12000, 3);
-INSERT INTO alimento VALUES(4, '2 Hamburguesa', 22000, 4);
+INSERT INTO alimento VALUES(3, 'Hamburguesa', 12000, 3, '');
+INSERT INTO alimento VALUES(4, '2 Hamburguesa', 22000, 4, '');
 
-INSERT INTO alimento VALUES(5, 'Sándwich', 9000, 5);
-INSERT INTO alimento VALUES(6, '2 Sándwich', 19000, 6);
+INSERT INTO alimento VALUES(5, 'Sándwich', 9000, 5, '');
+INSERT INTO alimento VALUES(6, '2 Sándwich', 19000, 6, '');
 
-INSERT INTO alimento VALUES(7, 'Papas fritas', 8000, 7 );
-INSERT INTO alimento VALUES(8, 'Combo Papas fritas', 20000, 8 );
+INSERT INTO alimento VALUES(7, 'Papas fritas', 8000, 7, '');
+INSERT INTO alimento VALUES(8, 'Combo Papas fritas', 20000, 8,'');
 
-INSERT INTO alimento VALUES(9, 'Hamburguesa con queso', 13000, 9 );
-INSERT INTO alimento VALUES(10, '2 Hamburguesa con queso doble', 21000, 10);
+INSERT INTO alimento VALUES(9, 'Hamburguesa con queso', 13000, 9, '');
+INSERT INTO alimento VALUES(10, '2 Hamburguesa con queso doble', 21000, 10, '');
 
 
 /*INSERTS FOR TABLE TEATROS*/

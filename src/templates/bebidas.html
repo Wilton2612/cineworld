@@ -5,25 +5,26 @@
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3>Bebidas del teatro - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861;">Bebidas del teatro - {{teatro.nombre}}</h3>
 
-<table class="table">
+
+<table class="table table-striped" style="width: 50%; margin: auto;">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-        </tr>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+      </tr>
     </thead>
     <tbody>
         {% for bebida in bebidas_lista %}
-        <tr>
-            <td>{{bebida.idbebida}}</td>
-            <td>{{bebida.nombre}}</td>
-            <td>{{bebida.precio}}</td>
-        </tr>
-        {% endfor %}
+      <tr>
+        <td>{{bebida.nombre}}</td>
+        <td>{{bebida.precio}}</td>
+      </tr>
+      {% endfor %}
     </tbody>
-</table>
+  </table>
+<br>
+
 
 {%endblock%}

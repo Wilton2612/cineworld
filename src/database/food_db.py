@@ -5,7 +5,7 @@ from ..utils.bd import obtener_conexion
 
 def list_alimento_by_teatro(iden:int)-> List[Alimento]:
     conexion = obtener_conexion()
-    sentencia = """SELECT cine.alimento.idalimento, cine.alimento.nombre, cine.alimento.precio, cine.bebida.*
+    sentencia = """SELECT cine.alimento.idalimento, cine.alimento.nombre, cine.alimento.precio, cine.alimento.imagen, cine.bebida.*
                 FROM cine.alimento, cine.bebida, cine.teatro_alimento
                 WHERE cine.alimento.idalimento = cine.teatro_alimento.idalimento AND 
                 cine.alimento.bebida_fk = cine.bebida.idbebida AND 
@@ -18,8 +18,8 @@ def list_alimento_by_teatro(iden:int)-> List[Alimento]:
 
     alimentos_lista = []
     for record in alimentos:
-        alimento = Alimento(idalimento=record[0], nombre1=record[1], precio1=record[2], idbebida=record[3], 
-        nombre2=record[4], precio2=record[5])
+        alimento = Alimento(idalimento=record[0], nombre1=record[1], precio1=record[2],imagen=record[3], idbebida=record[4], 
+        nombre2=record[5], precio2=record[6], total=record[2]+record[6])
         alimentos_lista.append(alimento)
 
     return alimentos_lista

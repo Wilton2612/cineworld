@@ -5,31 +5,22 @@
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3>Servicios en sala - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861;">Servicios en sala - {{teatro.nombre}}</h3>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Condiciones</th>
-            <th>imagen</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        {% for servicio in servicios_lista %}
-        <tr>
-            <td>{{servicio.idservicio}}</td>
-            <td>{{servicio.nombre}}</td>
-            <td>{{servicio.descripcion}}</td>
-            <td>{{servicio.condiciones}}</td>
-            <td>{{servicio.imagen}}</td>
-           
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
 
+  {% for servicio in servicios_lista %}
+  <div class="card" style="width: 50%; margin: auto;">
+    <img src="{{servicio.imagen}}" class="card-img-top" alt="{{servicio.nombre}}">
+    <div class="card-body">
+      <h5 class="card-title">{{servicio.nombre}}</h5>
+      <p class="card-text">{{servicio.descripcion}}</p>
+      <br>
+      <h5 class="card-title">Condiciones</h5>
+      <p class="card-text">{{servicio.condiciones}}</p>
+      <a href="/solicitudes" class="btn btn-primary">Go solicitudes</a>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+  
 {%endblock%}
