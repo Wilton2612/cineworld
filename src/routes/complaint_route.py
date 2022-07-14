@@ -15,7 +15,7 @@ def contacto_cliente():
    
     identificador = principal.leer()
     if identificador is None:
-            return render_template('error.html')
+        abort(403)
     else:
         formulario = complaint_form.Formulario_Queja(request.form)
         if request.method == 'GET':

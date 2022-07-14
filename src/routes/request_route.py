@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, abort
 
 from ..controller import servant_controller
 from ..models.servant_model import Servicio
@@ -17,7 +17,7 @@ def solicitudes():
 
     identificador = principal.leer()
     if identificador is None:
-            return render_template('error.html')
+            abort(403)
     else:
         formulario = request_form.Formulario_Solicitud(request.form)
         servicios = servant_controller.lista_servicio_teatro(identificador)

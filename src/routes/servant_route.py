@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, abort
 
 from ..controller import servant_controller
 from ..models.servant_model import Servicio
@@ -12,7 +12,7 @@ servant = Blueprint('servant', __name__, template_folder='../templates')
 def servicios_teatro():
     identificador = principal.leer()
     if identificador is None:
-        return render_template('error.html')
+        abort(403)
     else:
         servicios_lista = servant_controller.lista_servicio_teatro(identificador)
         servicios_dict = [servicio._asdict() for servicio in servicios_lista]

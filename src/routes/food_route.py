@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, abort
 
 from ..controller import food_controller
 from ..models.food_model import Alimento, Bebida
@@ -12,7 +12,7 @@ def alimentos_teatro():
 
     identificador = principal.leer()
     if identificador is None:
-        return render_template('error.html')
+        abort(403)
     else:
         alimentos_lista = food_controller.lista_alimento_teatro(identificador)
         alimentos_dict = [alimento._asdict() for alimento in alimentos_lista]
@@ -24,7 +24,7 @@ def alimentos_teatro():
 def bebidas_teatro():
     identificador = principal.leer()
     if identificador is None:
-        return render_template('error.html')
+        abort(403)
     else:
         bebidas_lista = food_controller.lista_bebida_teatro(identificador)
         bebidas_dict = [bebida._asdict() for bebida in bebidas_lista]

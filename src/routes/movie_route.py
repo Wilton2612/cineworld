@@ -23,7 +23,7 @@ def peliculas_sala(iden:Optional[int] = None):
     if iden is None:
         identificador = principal.leer()
         if identificador is None:
-            return render_template('error.html')
+            abort(403)
         else:
             pelicula_lista_sala = movie_controller.lista_pelicula_teatro_sala(identificador)
             peliculas_dict = [pelicula._asdict() for pelicula in pelicula_lista_sala]
@@ -38,7 +38,7 @@ def peliculas_sala(iden:Optional[int] = None):
             teatro_asociado = movie_controller.theater_index(iden)
             return render_template('lista_pelicula_sala.html', pelicula_lista_sala=pelicula_lista_sala, teatro=teatro_asociado)
         else:
-            return "error"
+            abort(403)
     #return jsonify(peliculas_dict)
 
 
