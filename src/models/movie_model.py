@@ -12,3 +12,8 @@ class Pelicula(NamedTuple):
     reparto: Optional[str] = None
     estreno: Optional[str] = None
     imagen: Optional[str] = None
+
+
+class Horario(NamedTuple):
+    idhorario: Optional[int] = None
+    hora: Optional[str] = None

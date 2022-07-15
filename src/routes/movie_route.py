@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, abort
 from typing import NamedTuple, Optional
 from ..controller import movie_controller
 from ..models.movie_model import Pelicula
@@ -51,22 +51,12 @@ def pelicula_particular(iden):
     else:
 
         pelicula_sala = movie_controller.pelicula_teatro_sala(iden, identificador)
+        horarios_pelicula = movie_controller.horario_pelicula(iden)
         teatro_asociado = movie_controller.theater_index(identificador)
-        return render_template('pelicula_sala.html', pelicula_sala=pelicula_sala)
+        return render_template('pelicula_sala.html', pelicula_sala=pelicula_sala, lista_horarios=horarios_pelicula, teatro_asociado=teatro_asociado)
         
     
     #return jsonify(peliculas_dict)
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -81,4 +71,19 @@ def peliculas_proxima():
         teatro_asociado = movie_controller.theater_index(iden)
         return render_template('lista_pelicula_proxima.html', pelicula_lista_proxima=pelicula_lista_proxima, teatro=teatro_asociado)
     #return jsonify(peliculas_dict)
+
+
+@movie.route("/peliculas-proxima/<int:iden>", methods=['GET'])
+def pelicula_particular_estreno(iden):
     
+    identificador = principal.leer()
+    if identificador is None:
+        return abort(403)
+    else:
+
+        pelicula_sala = movie_controller.pelicula_teatro_proxima(iden, identificador)
+        teatro_asociado = movie_controller.theater_index(identificador)
+        return render_template('pelicula_proxima.html', pelicula_sala=pelicula_sala, teatro_asociado=teatro_asociado)
+        
+    
+    #return jsonify(peliculas_dict)

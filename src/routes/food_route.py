@@ -32,4 +32,9 @@ def bebidas_teatro():
         return render_template('bebidas.html', bebidas_lista=bebidas_lista, teatro=teatro_asociado)
         #return jsonify(bebidas_dict)
 
-   
+
+@food.route("/taquilla", methods=['GET'])
+def taquilla():
+    return render_template('entradas.html')
+
+#<!--<input type="hidden" name="csrf_token"  value="{{csrf_token()}}"/>-->

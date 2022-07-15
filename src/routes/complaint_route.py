@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, abort
+from flask_wtf.csrf import CSRFProtect
 
 from ..models.complaint_model import Contacto
 from ..controller import complaint_controller
@@ -9,6 +10,8 @@ from ..helpers import principal, complaint_form
 
 
 contact = Blueprint('contact', __name__, template_folder='../templates')
+
+
 
 @contact.route("/contactanos", methods=['GET', 'POST'])
 def contacto_cliente():

@@ -23,13 +23,6 @@
     <div class="col" style="width: 80%; margin: auto; margin-top: 30px; text-align: center;">
       <h3>Teatro: {{teatro_asociado.nombre}}</h3>
       <div class="container">
-        <div class="row">
-          {% for horario in lista_horarios %}
-          <div class="col alert alert-secondary shadow-none p-3 mb-5 rounded" role="alert">
-            {{horario.hora}} PM
-          </div>
-          {% endfor %}
-        </div>
         <div class="row shadow-lg p-3 mb-5 bg-body rounded">
           <ul class="list-group" >
             <li class="list-group-item" style="background-color: #B2C8DF;">Género: {{pelicula_sala.genero}}</li>

@@ -37,8 +37,17 @@ WHERE cine.teatro_servicio.idservicio = cine.servicio.idservicio AND cine.teatro
 
 /*PELICULA EN PARTICULAR EN SALA*/
 SELECT cine.pelicula.*
-FROM cine.teatro_pelicula, cine.pelicula 
+FROM cine.teatro_pelicula, cine.pelicula
 WHERE cine.teatro_pelicula.idpelicula=cine.pelicula.idpelicula AND cine.pelicula.estreno=1 AND cine.teatro_pelicula.idteatro=1 AND cine.pelicula.idpelicula=1;
+
+
+/*HORARIOS DE UNA PELICULA EN PARTICULAR*/
+SELECT cine.horario.*
+FROM cine.horario, cine.pelicula_horario
+WHERE cine.pelicula_horario.idhorario = cine.horario.idhorario AND cine.pelicula_horario.idpelicula = 2;
+
+
+
 
 
 /*PELICULA EN PARTICULAR QUE ESTÁN PROXIMAS A ESTRENARSE*/

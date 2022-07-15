@@ -5,12 +5,13 @@
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3 style="color: #DF7861;">Prómixas peliculas de {{teatro.nombreciudad}} - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861; margin-top: 30px;">Prómixas peliculas de {{teatro.nombreciudad}} - {{teatro.nombre}}</h3>
 
 
 {% for pelicula in pelicula_lista_proxima %}
-<div class="card" style="width: 50%; margin: auto;">
-  <img src="{{pelicula.imagen}}" class="card-img-top" alt="{{pelicula.nombre}}">
+<div class="card" style="width: 50%; margin: auto;margin-top: 30px;">
+  <a href="/peliculas-proxima/{{pelicula.idpelicula}}"><img src="{{pelicula.imagen}}" class="card-img-top" alt="{{pelicula.nombre}}"></a>
+  
   <div class="card-body">
     <p class="card-text">{{pelicula.descripcion}}</p>
   </div>

@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify, render_template, redirect, url_for, abort
+from flask_wtf.csrf import CSRFProtect
 
 from ..controller import servant_controller
 from ..models.servant_model import Servicio
@@ -10,6 +11,7 @@ from ..helpers import principal, request_form
 
 
 solicitud = Blueprint('request', __name__)
+
 
 
 @solicitud.route("/solicitudes", methods=['GET', 'POST'])

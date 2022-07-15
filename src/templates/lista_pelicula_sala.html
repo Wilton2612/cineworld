@@ -5,12 +5,12 @@
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3 style="color: #DF7861;">Cartelera de {{teatro.nombreciudad}} - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861; margin-top: 30px;">Cartelera de {{teatro.nombreciudad}} - {{teatro.nombre}}</h3>
 
 
 
 {% for pelicula in pelicula_lista_sala %}
-<div class="card mb-3" style="width: 50%; margin: auto;">
+<div class="card mb-3" style="width: 50%; margin: auto; margin-top: 30px;">
 
   <a href="/peliculas-sala/{{pelicula.idpelicula}}" ><img src="{{pelicula.imagen}}" class="card-img-top" alt="{{pelicula.nombre}}"></a>
   

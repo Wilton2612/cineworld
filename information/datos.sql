@@ -295,4 +295,37 @@ INSERT INTO teatro_servicio VALUES(4,3);
 INSERT INTO teatro_servicio VALUES(5,1);
 INSERT INTO teatro_servicio VALUES(5,3);
 INSERT INTO teatro_servicio VALUES(5,5);
+
+
+/*INSERTS FOR TABLE HORARIOS*/
+INSERT INTO horario VALUES(1,'1:10');
+INSERT INTO horario VALUES(2,'1:40');
+INSERT INTO horario VALUES(3,'3:50');
+INSERT INTO horario VALUES(4,'4:20');
+INSERT INTO horario VALUES(5,'6:30');
+INSERT INTO horario VALUES(6,'7:00');
+INSERT INTO horario VALUES(7,'9:10');
+INSERT INTO horario VALUES(8,'9:40');
+
+
+/*INSERTS FOR TABLE PELICULAS-HORARIOS*/
+INSERT INTO pelicula_horario VALUES(1,3);
+INSERT INTO pelicula_horario VALUES(1,5);
+INSERT INTO pelicula_horario VALUES(1,7);
+
+INSERT INTO pelicula_horario VALUES(2,1);
+INSERT INTO pelicula_horario VALUES(2,6);
+INSERT INTO pelicula_horario VALUES(2,8);
+
+INSERT INTO pelicula_horario VALUES(3,2);
+INSERT INTO pelicula_horario VALUES(3,4);
+INSERT INTO pelicula_horario VALUES(3,6);
+
+INSERT INTO pelicula_horario VALUES(4,1);
+INSERT INTO pelicula_horario VALUES(4,5);
+INSERT INTO pelicula_horario VALUES(4,8);
+
+INSERT INTO pelicula_horario VALUES(5,4);
+INSERT INTO pelicula_horario VALUES(5,6);
+INSERT INTO pelicula_horario VALUES(5,7);
 commit;

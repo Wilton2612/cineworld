@@ -1,0 +1,59 @@
+{%extends "base/base.html"%}
+{%block title %} Entradas {% endblock %}
+
+
+{% include "base/layout.html"%}
+{%block content%}
+
+<h3 style="color: #DF7861; margin-top: 30px;">Entradas al cine son estándar para todas los Teatros</h3>
+
+
+<table class="table table-striped" style="width: 50%; margin: auto;">
+    <h4 style="width: 50%; margin: auto; margin-top: 50px; text-align: center;">Precios de taquilla</h4>
+    <thead>
+      <tr>
+        <th scope="col" style="text-align: center;">Días</th>
+        <th scope="col" style="text-align: center;">2D</th>
+        <th scope="col" style="text-align: center;">3D</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr style="text-align: center;">
+        <td>Lunes (No festivos)</td>
+        <td>$ 9000</td>
+        <td>$ 11000</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>Martes (No festivos)</td>
+        <td>$ 7000</td>
+        <td>$ 8000</td>
+      </tr>
+    
+      <tr style="text-align: center;">
+        <td>Miércoles <br>
+            (No festivos, No pre-estrenos)</td>
+        <td>$ 7000</td>
+        <td>$ 8000</td>
+      </tr>
+    
+      <tr style="text-align: center;">
+        <td>Jueves y pre-estrenos <br>
+            Miércoles (No festivos)</td>
+        <td>$ 9000</td>
+        <td>$ 12000</td>
+      </tr>
+      <tr style="text-align: center;">
+        <td>Viernes, Sábado <br>
+        Domingo y Festivos</td>
+        <td>$ 11000</td>
+        <td>$ 13000</td>
+      </tr>
+    
+    </tbody>
+  </table>
+<br>
+
+
+
+{%endblock%}

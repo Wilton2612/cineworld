@@ -5,11 +5,11 @@
 {% include "base/layout.html"%}
 {%block content%}
 
-<h3 style="color: #DF7861;">Servicios en sala - {{teatro.nombre}}</h3>
+<h3 style="color: #DF7861; margin-top: 30px;">Servicios en sala - {{teatro.nombre}}</h3>
 
 
   {% for servicio in servicios_lista %}
-  <div class="card" style="width: 50%; margin: auto;">
+  <div class="card" style="width: 50%; margin: auto; margin-top: 30px;">
     <img src="{{servicio.imagen}}" class="card-img-top" alt="{{servicio.nombre}}">
     <div class="card-body">
       <h5 class="card-title">{{servicio.nombre}}</h5>
