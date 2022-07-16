@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from ..models.movie_model import Pelicula, Horario
 from ..database import movie_db
@@ -18,7 +18,7 @@ def lista_pelicula_teatro_sala(iden:int) -> List[Pelicula]:
 
 
 """PELICULA EN PARTICULAR QUE ESTÁN EN SALA"""
-def pelicula_teatro_sala(iden_pelicula:int, iden_teatro:int) -> Pelicula:
+def pelicula_teatro_sala(iden_pelicula:int, iden_teatro:int) -> Optional[Pelicula]:
     return movie_db.pelicula_by_teatro_sala(iden_pelicula, iden_teatro)
 
 """HORARIOS DE UNA PELICULA EN PARTICULAR"""
@@ -31,7 +31,7 @@ def lista_pelicula_teatro_estreno(iden:int) -> List[Pelicula]:
     return movie_db.list_pelicula_by_teatro_estreno(iden)
 
 """PELICULA EN PARTICULAR QUE ESTÁ PRÓXIMA A ESTRENAR"""
-def pelicula_teatro_proxima(iden_pelicula:int, iden_teatro:int) -> Pelicula:
+def pelicula_teatro_proxima(iden_pelicula:int, iden_teatro:int) -> Optional[Pelicula]:
     return movie_db.pelicula_by_teatro_proxima(iden_pelicula, iden_teatro)
 
 

@@ -37,7 +37,7 @@ def contacto_cliente():
             if contact == 0:
                 return redirect(url_for('contact.contacto_cliente'))
             else:
-                return render_template('error.html')
+                return render_template('error2.html')
         else:
             return render_template('contacto.html',formulario=formulario )
         

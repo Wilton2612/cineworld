@@ -49,12 +49,13 @@ def pelicula_particular(iden):
     if identificador is None:
         return abort(403)
     else:
-
         pelicula_sala = movie_controller.pelicula_teatro_sala(iden, identificador)
-        horarios_pelicula = movie_controller.horario_pelicula(iden)
-        teatro_asociado = movie_controller.theater_index(identificador)
-        return render_template('pelicula_sala.html', pelicula_sala=pelicula_sala, lista_horarios=horarios_pelicula, teatro_asociado=teatro_asociado)
-        
+        if pelicula_sala != 0:
+            horarios_pelicula = movie_controller.horario_pelicula(iden)
+            teatro_asociado = movie_controller.theater_index(identificador)
+            return render_template('pelicula_sala.html', pelicula_sala=pelicula_sala, lista_horarios=horarios_pelicula, teatro_asociado=teatro_asociado)
+        else:
+            return render_template('error2.html')
     
     #return jsonify(peliculas_dict)
 
@@ -64,7 +65,7 @@ def pelicula_particular(iden):
 def peliculas_proxima():
     iden = principal.leer()
     if iden is None:
-        return render_template('error.html')
+        return abort(403)
     else:
         pelicula_lista_proxima = movie_controller.lista_pelicula_teatro_estreno(iden)
         peliculas_dict = [pelicula._asdict() for pelicula in pelicula_lista_proxima]
@@ -82,8 +83,10 @@ def pelicula_particular_estreno(iden):
     else:
 
         pelicula_sala = movie_controller.pelicula_teatro_proxima(iden, identificador)
-        teatro_asociado = movie_controller.theater_index(identificador)
-        return render_template('pelicula_proxima.html', pelicula_sala=pelicula_sala, teatro_asociado=teatro_asociado)
-        
+        if pelicula_sala  != 0:
+            teatro_asociado = movie_controller.theater_index(identificador)
+            return render_template('pelicula_proxima.html', pelicula_sala=pelicula_sala, teatro_asociado=teatro_asociado)
+        else:
+            return render_template('error2.html')
     
     #return jsonify(peliculas_dict)

@@ -40,6 +40,6 @@ def solicitudes():
             if requetss == 0:
                 return redirect(url_for('request.solicitudes'))
             else:
-                return render_template('error.html')
+                return render_template('error2.html')
         else:
             return render_template('solicitud.html',formulario=formulario )

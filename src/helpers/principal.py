@@ -29,7 +29,6 @@ def escribir(iden):
         hoja.save('src/data/dato.xlsx')
         return 0
     except Exception as e:
-        print(e)
         return -1
        
 
@@ -47,6 +46,5 @@ def delete():
         hoja.save('src/data/dato.xlsx')
         return 0
     except Exception as e:
-        print(e, "Intento fallido")
         return -1
 
